@@ -65,5 +65,29 @@
   background-color: #E6E9F0;
 }
 
+.shipping-color{
+  color: #8752B2;
+}
+
+.lock{
+  font-size: 20px;
+}
+
+.first-img{
+  background-image: url("./img/backpack.jpg");
+}
+
+.second-img{
+  background-image: url("./img/bag.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.third-img{
+  background-image: url("./img/shoes.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 

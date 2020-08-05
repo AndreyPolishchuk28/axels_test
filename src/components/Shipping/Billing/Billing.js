@@ -1,16 +1,17 @@
 import React from "react";
-import {ShippingInfo} from "./ShippingInfo/ShippingInfo";
-import { Row, Col } from 'react-bootstrap';
-import {Order} from "./Order/Order";
-import styled from "styled-components";
+import {Col, Row} from "react-bootstrap";
+import {ShippingInfo} from "../ShippingInfo/ShippingInfo";
+import {Order} from "../Order/Order";
+import {Container} from '../index'
 
 
-export const Shipping = () =>{
+export const Billing = (props) =>{
+
     return(
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
-                    <ShippingInfo shipping='Shipping Info' recipient='Recipient' address='Address'/>
+                    <ShippingInfo shipping='Billing Info' recipient='Billing Contact' address='Billing Address'/>
                 </Col>
                 <Col className='grey wrapper-order-width' md={5} sm={8} xs={10}>
                     <Order/>
@@ -19,9 +20,3 @@ export const Shipping = () =>{
         </Container>
     )
 };
-
-export const Container = styled.div`
-    background-color: #E6E9F0;
-    padding-top: 15px;
-    height: 100vh;
-`;
