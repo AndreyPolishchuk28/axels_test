@@ -1,15 +1,27 @@
 import React from "react";
 import { Button, Row, Col, Form } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from "styled-components";
 import '../shipping.scss'
 
-export const ShippingInfo = () =>{
+export const ShippingInfo = (props) =>{
+    // const [color, setColor] = useState(false);
+    //
+    // useEffect(() =>{
+    //     if (props.location.pathname === '/billing'){
+    //         setColor(true)
+    //     }else{
+    //         setColor(false)
+    //     }
+    // },[]);
+
+
     return(
         <div>
             <Row>
                 <Col className='d-flex align-items-center shipping-wrapper'>
-                    <span>Shipping</span>
+                    <span className='shipping-color'>Shipping</span>
                     <Arrow/>
                     <span>Billing</span>
                     <Arrow/>
@@ -18,12 +30,12 @@ export const ShippingInfo = () =>{
             </Row>
             <Row>
                 <Col className='text-left'>
-                    <Title>Shipping info</Title>
+                    <Title>{props.shipping}</Title>
                 </Col>
             </Row>
             <Form>
                 <Form.Group>
-                    <Form.Label className='recipient'>Recipient</Form.Label>
+                    <Form.Label className='recipient'>{props.recipient}</Form.Label>
                     <Form.Control type="text" placeholder="Full Name" />
                     <Row className='daytime'>
                         <Col md={8} sm={8} xs={8}>
@@ -35,7 +47,7 @@ export const ShippingInfo = () =>{
                             </Form.Text>
                         </Col>
                     </Row>
-                    <Form.Label className='recipient'>Address</Form.Label>
+                    <Form.Label className='recipient'>{props.address}</Form.Label>
                     <Form.Control className='indent' type="text" placeholder="Street Address"/>
                     <Form.Control className='indent' type="text" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
                     <Form.Control className='indent' type="text" placeholder="City"/>
@@ -55,25 +67,17 @@ export const ShippingInfo = () =>{
 
                 <Row>
                     <Col md={7} sm={7} xs={7}>
+                        <Link to='/billing'>
                         <Button className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Form>
-
-
         </div>
     )
 };
 
-
-// const WrapperContainer = styled.div`
-//     width: 400px;
-//     margin: 0 auto;
-//     padding-top: 20px;
-//     background-color: #ffffff;
-// `;
-
-const Arrow = styled.div`
+export const Arrow = styled.div`
     width: 12px;
     height: 12px;
     border: 1px solid gray;
@@ -83,7 +87,7 @@ const Arrow = styled.div`
     margin: 0 15px;
 `;
 
-const Title = styled.h2`
+export const Title = styled.h2`
     color: #8752B2;
     margin-top: 25px;
 `;

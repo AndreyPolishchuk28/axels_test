@@ -17,7 +17,7 @@ export const Order = () =>{
             </Row>
             <Row className='wrapper-product ml-1'>
                 <Col xl={2} md={2} sm={2} xs={2} className='p-0'>
-                    <FirstImg/>
+                    <FirstImg className='first-img'/>
                 </Col>
                 <Col xl={7} md={8} sm={6} xs={6} className='text-left img-size d-flex flex-column justify-content-between'>
                     <NameProduct>The Chelsea Boot</NameProduct>
@@ -30,7 +30,7 @@ export const Order = () =>{
             </Row>
             <Row className='wrapper-product ml-1'>
                 <Col xl={2} md={2} sm={2} xs={2} className='p-0'>
-                    <FirstImg/>
+                    <FirstImg className='second-img'/>
                 </Col>
                 <Col xl={8} md={8} sm={7} xs={8} className='text-left img-size d-flex flex-column justify-content-between'>
                     <NameProduct>The Twill Snap Backpack</NameProduct>
@@ -43,7 +43,7 @@ export const Order = () =>{
             </Row>
             <Row className='wrapper-product ml-1'>
                 <Col xl={2} md={2} sm={2} xs={2} className='p-0'>
-                    <FirstImg/>
+                    <FirstImg className='third-img'/>
                 </Col>
                 <Col xl={8} md={8} sm={6} xs={6} className='text-left img-size d-flex flex-column justify-content-between'>
                     <NameProduct>The Twill Zip Tote</NameProduct>
@@ -102,7 +102,6 @@ const Edit = styled.span`
 const FirstImg = styled.div`
     width: 50px;
     height: 100%;
-    background-color: red;
 `;
 
 const NameProduct = styled.p`
