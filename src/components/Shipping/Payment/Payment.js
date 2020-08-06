@@ -13,11 +13,11 @@ export const Payment = () =>{
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
                     <Row>
                         <Col className='d-flex align-items-center shipping-wrapper'>
-                            <span className='shipping-color'>Shipping</span>
+                            <span>Shipping</span>
                             <Arrow/>
                             <span>Billing</span>
                             <Arrow/>
-                            <span>Payment</span>
+                            <span className='shipping-color'>Payment</span>
                         </Col>
                     </Row>
                     <Row>
