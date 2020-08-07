@@ -1,11 +1,12 @@
-import {createStore, combineReducers, applyMiddleware} from "redux";
+import {createStore, applyMiddleware, combineReducers} from "redux";
 import createSagaMiddleware from "redux-saga";
-import {getProductsSaga} from "../action";
-import {SET_PRODUCTS} from "../action";
+import {getProductsSaga, shippingInfoSaga} from "../action";
+import {SET_PRODUCTS, SHIPPING_INFO} from "../action";
 import {all} from 'redux-saga/effects'
 
 const initialState = {
-    products: []
+    product: [],
+    userAddress: []
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -14,7 +15,13 @@ const productsReducer = (state = initialState, action) => {
         case SET_PRODUCTS:{
             return{
                 ...state,
-                products: payload
+                product: payload
+            }
+        }
+        case SHIPPING_INFO: {
+            return {
+                ...state,
+                userAddress: payload
             }
         }
         default: return state
@@ -23,16 +30,45 @@ const productsReducer = (state = initialState, action) => {
 
 function* rootSaga() {
     yield all([
-        getProductsSaga()
+        getProductsSaga(),
+        shippingInfoSaga()
     ])
 }
 
 const sagaMiddleware = createSagaMiddleware();
-const reducer = combineReducers({
-    product: productsReducer
-});
 
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+function saveToLocalStorage(state) {
+    try{
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('state', serializedState)
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function loadFromLocalStorage() {
+    try{
+        const serializedState = localStorage.getItem('state');
+        if(serializedState === null) return undefined;
+        return JSON.parse(serializedState)
+    } catch (e) {
+        console.log(e);
+        return undefined
+    }
+}
+const persistedState = loadFromLocalStorage();
+
+
+// const reducer = combineReducers({
+//     products: productsReducer
+// });
+
+export const store = createStore(combineReducers({
+    products: productsReducer
+}), persistedState, applyMiddleware(sagaMiddleware));
+
+store.subscribe(() => saveToLocalStorage(store.getState()));
 sagaMiddleware.run(rootSaga);
 
 

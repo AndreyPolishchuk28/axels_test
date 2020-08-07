@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Arrow, Title} from "../ShippingInfo/ShippingInfo";
 import {Order} from "../Order/Order";
-import {Container} from "../index";
+import {Container} from "../ShippingInfo/ShippingInfo";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
@@ -50,7 +50,6 @@ export const Payment = () =>{
                                 </Col>
                             </Row>
                         </Form.Group>
-
                         <Row>
                             <Col md={7} sm={7} xs={7}>
                                 <Link to='/print'>

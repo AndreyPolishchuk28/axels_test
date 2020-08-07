@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
 import {Order} from "../Order/Order";
-import {Container} from "../index";
+import {Container} from "../ShippingInfo/ShippingInfo";
 import styled from "styled-components";
 
 export const ThanksPage = () =>{
