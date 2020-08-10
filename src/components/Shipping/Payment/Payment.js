@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {Arrow, Title} from "../ShippingInfo/ShippingInfo";
 import {Order} from "../Order/Order";
-import {Container} from "../index";
+import {Container} from "../ShippingInfo/ShippingInfo";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
@@ -13,11 +13,11 @@ export const Payment = () =>{
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
                     <Row>
                         <Col className='d-flex align-items-center shipping-wrapper'>
-                            <span className='shipping-color'>Shipping</span>
+                            <span>Shipping</span>
                             <Arrow/>
                             <span>Billing</span>
                             <Arrow/>
-                            <span>Payment</span>
+                            <span className='shipping-color'>Payment</span>
                         </Col>
                     </Row>
                     <Row>
@@ -50,7 +50,6 @@ export const Payment = () =>{
                                 </Col>
                             </Row>
                         </Form.Group>
-
                         <Row>
                             <Col md={7} sm={7} xs={7}>
                                 <Link to='/print'>
