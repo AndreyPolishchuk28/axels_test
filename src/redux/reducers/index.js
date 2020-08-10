@@ -21,7 +21,7 @@ const productsReducer = (state = initialState, action) => {
         case SHIPPING_INFO: {
             return {
                 ...state,
-                userAddress: payload
+                userAddress: [...state.userAddress, payload]
             }
         }
         default: return state

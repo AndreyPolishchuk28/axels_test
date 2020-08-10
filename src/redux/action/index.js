@@ -18,7 +18,6 @@ export const shippingInfo = (payload) =>{
     }
 };
 
-
 export function* getProductsSaga() {
     while (true){
         try {

@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {Row, Col, Button, Form} from 'react-bootstrap'
+import {connect} from "react-redux";
+import styled from "styled-components";
 import {Order} from "../Order/Order";
 import '../shipping.scss'
-import styled from "styled-components";
-import {shippingInfo} from "../../store/action";
-import {connect} from "react-redux";
+import {shippingInfo} from "../../../redux/action";
+import {validations} from "../../../validation";
 
 const mapStateToProps = state =>{
     return{
@@ -24,50 +25,20 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
     });
     const [errors, setErrors] = useState({});
 
-    function validation(values) {
-        let errors = {};
-
-        if(!values.fullName){
-            errors.fullName = 'Please enter full name'
-        }
-        if(!values.dayTimePhone){
-            errors.dayTimePhone = 'Please enter the phone'
-        }else if(isNaN(values.dayTimePhone)){
-            errors.dayTimePhone = 'Wrong phone'
-        }
-        if(!values.streetAddress){
-            errors.streetAddress = 'Please enter street address'
-        }
-        if(!values.apt){
-            errors.apt = 'Please enter street address'
-        }
-        if(!values.city){
-            errors.city = 'Please enter the city'
-        }
-        if(!values.country){
-            errors.country = 'Please enter the country'
-        }
-        if(isNaN(values.zip)){
-            errors.zip = 'Wrong zip code'
-        }else if(!values.zip){
-            errors.zip = 'Please enter the zip code'
-        }
-        return errors
-    }
-
     const  check = () =>{
-        let errors = validation(values);
+        let errors = validations(values);
         if (Object.keys(errors).length){
-            setErrors(validation(values));
+            setErrors(validations(values));
         }else{
             props.shippingInfo({
+                type: 'shippingInfo',
+                fullName: values.fullName,
+                dayTimePhone: values.dayTimePhone,
                 streetAddress: values.streetAddress,
                 apt: values.apt,
                 city: values.city,
                 country: values.country,
                 zip: values.zip,
-                fullName: props.fullName,
-                dayTimePhone: props.phone
             });
             props.history.push('/billing')
         }
@@ -79,10 +50,6 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
             ...values,
             [name]: value
         })
-    };
-
-    const handleFocus = () =>{
-        console.log('rvrr');
     };
 
     return(
@@ -106,16 +73,12 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
                     <Form>
                         <Form.Group>
                             <Form.Label className='recipient mb-3'>Recipient</Form.Label>
-                            <Form.Control onFocus={handleFocus} name='fullName' type="text" placeholder="Full Name" value={values.fullName} onChange={handleChange}/>
-                            {errors ?
-                                <Form.Text className="text-muted">
-                                    {errors.fullName}
-                                </Form.Text>
-                                : null
-                            }
+                            <Form.Control name='fullName' type="text" placeholder="Full Name" value={values.fullName} onChange={handleChange}/>
+                            {errors && <Form.Text className="errors">{errors.fullName}</Form.Text>}
                             <Row className='daytime'>
                                 <Col md={8} sm={8} xs={8}>
                                     <Form.Control name='dayTimePhone' type="text" placeholder="Daytime Phone" value={values.dayTimePhone} onChange={handleChange} />
+                                    {errors && <Form.Text className="errors">{errors.dayTimePhone}</Form.Text>}
                                 </Col>
                                 <Col>
                                     <Form.Text className="text-muted">
@@ -125,8 +88,11 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
                             </Row>
                             <Form.Label className='recipient mb-0'>Address</Form.Label>
                             <Form.Control onChange={handleChange} name='streetAddress' className='indent' type="text" value={values.streetAddress} placeholder="Street Address" required/>
+                            {errors && <Form.Text className="errors">{errors.streetAddress}</Form.Text>}
                             <Form.Control onChange={handleChange} name='apt' className='indent' type="text" value={values.apt} placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
+                            {errors && <Form.Text className="errors">{errors.apt}</Form.Text>}
                             <Form.Control onChange={handleChange} name='city' value={values.city} className='indent' type="text" placeholder="City"/>
+                            {errors && <Form.Text className="errors">{errors.city}</Form.Text>}
                             <Row>
                                 <Col md={7} sm={7} xs={7}>
                                     <Form.Control value={values.country} name='country' onChange={handleChange} as="select">
@@ -134,17 +100,18 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
                                         <option value='Usa'>USA</option>
                                         <option value='Italy'>Italy</option>
                                     </Form.Control>
+                                    {errors && <Form.Text className="errors">{errors.country}</Form.Text>}
                                 </Col>
                                 <Col>
                                     <Form.Control onChange={handleChange} value={values.zip} name='zip' type="text" placeholder="ZIP"/>
+                                    {errors && <Form.Text className="errors">{errors.zip}</Form.Text>}
                                 </Col>
                             </Row>
                         </Form.Group>
                     </Form>
-
                     <Row>
                         <Col md={7} sm={7} xs={7}>
-                                    <Button onClick={check} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
+                            <Button onClick={check} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -175,4 +142,5 @@ export const Arrow = styled.div`
 export const Title = styled.h2`
     color: #8752B2;
     margin-top: 25px;
+    font-size: 30px;
 `;

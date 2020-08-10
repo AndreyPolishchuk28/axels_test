@@ -1,10 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Row} from "react-bootstrap";
+import styled from "styled-components";
+import {connect} from "react-redux";
 import {Order} from "../Order/Order";
 import {Container} from "../ShippingInfo/ShippingInfo";
-import styled from "styled-components";
+import {shippingInfo} from "../../../redux/action";
 
-export const ThanksPage = () =>{
+
+const mapStateToProps = state =>{
+    return{
+        ...state
+    }
+};
+
+export const ThanksPage = connect(mapStateToProps, {shippingInfo})(props =>{
+    const [email, setEmail] = useState();
+
+    const returnLastEmail = (arr) =>{
+        return arr[arr.length - 2];
+    };
+
+    useEffect(() =>{
+        if (props.products){
+            setEmail(returnLastEmail(props.products.userAddress))
+        }
+    },[]);
+
     return(
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
@@ -21,7 +42,7 @@ export const ThanksPage = () =>{
                     </Row>
                     <Row>
                         <Col className='text-left ml-3 mr-5'>
-                            <EmailInfo>Your will receive an email confirmation shortly to <Email>jonathan.smith@gmail.com</Email></EmailInfo>
+                            {email && <EmailInfo>Your will receive an email confirmation shortly to <Email>{email.email}</Email></EmailInfo>}
                         </Col>
                     </Row>
                     <Row>
@@ -42,7 +63,7 @@ export const ThanksPage = () =>{
             </Row>
         </Container>
     )
-};
+});
 
 const Title = styled.p`
     color: #8752B2;

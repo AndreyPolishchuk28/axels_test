@@ -1,12 +1,51 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
+import {connect} from "react-redux";
+import styled from "styled-components";
 import {Arrow, Title} from "../ShippingInfo/ShippingInfo";
 import {Order} from "../Order/Order";
 import {Container} from "../ShippingInfo/ShippingInfo";
-import {Link} from "react-router-dom";
-import styled from "styled-components";
+import {shippingInfo} from "../../../redux/action";
+import {paymentValidation} from "../../../validation";
 
-export const Payment = () =>{
+
+const mapStateToProps = state =>{
+    return{
+        ...state
+    }
+};
+
+export const Payment = connect(mapStateToProps, {shippingInfo}) (props =>{
+    const [errors, setErrors] = useState({});
+    const [values, setValues] = useState({
+        cardHolderName: '',
+        cardNumber: '',
+        expireDate: '',
+        securityCode: '',
+    });
+
+    const handleChange = event =>{
+        const {name, value} = event.target;
+        setValues({
+            ...values,
+            [name]: value
+        })
+    };
+
+    const check = () =>{
+        let errors = paymentValidation(values);
+        if (Object.keys(errors).length){
+            setErrors(paymentValidation(values));
+            console.log(errors);
+        }else{
+            props.shippingInfo({
+                type: 'Payment',
+                expireDate: values.expireDate,
+            });
+            props.history.push('/print')
+        }
+    };
+
     return(
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
@@ -34,27 +73,27 @@ export const Payment = () =>{
                     <Form>
                         <Form.Group>
                             <Form.Label className='recipient'>Cardholder Name</Form.Label>
-                            <Form.Control type="text" placeholder="Name as it appears on your card" />
-
+                            <Form.Control onChange={handleChange} name='cardHolderName' value={props.cardHolderName} type="text" placeholder="Name as it appears on your card" />
+                            {errors && <Form.Text className="errors">{errors.cardHolderName}</Form.Text>}
                             <Form.Label className='recipient mt-4'>Card Number</Form.Label>
-                            <Form.Control className='indent' type="text" placeholder="XXXX XXXX XXXX XXXX"/>
-
+                            <Form.Control onChange={handleChange} name='cardNumber' value={props.cardNumber} className='indent' type="text" placeholder="XXXX XXXX XXXX XXXX"/>
+                            {errors && <Form.Text className="errors">{errors.cardNumber}</Form.Text>}
                             <Row>
                                 <Col xl={3} lg={3} md={4} sm={4} xs={5}>
                                     <Form.Label className='recipient mt-3'>Expire Date</Form.Label>
-                                    <Form.Control className='indent' type="text" placeholder="MM/YY"/>
+                                    <Form.Control name='expireDate' onChange={handleChange} value={props.expireDate} className='indent' type="text" placeholder="MM/YY"/>
+                                    {errors && <Form.Text className="errors">{errors.expireDate}</Form.Text>}
                                 </Col>
                                 <Col xl={4} lg={4} md={4} sm={4} xs={6}>
                                     <Form.Label className='recipient mt-3'>Security Code</Form.Label>
-                                    <Form.Control type="text" placeholder=""/>
+                                    <Form.Control onChange={handleChange} name='securityCode' value={props.securityCode} type="text" placeholder=""/>
+                                    {errors && <Form.Text className="errors">{errors.securityCode}</Form.Text>}
                                 </Col>
                             </Row>
                         </Form.Group>
                         <Row>
                             <Col md={7} sm={7} xs={7}>
-                                <Link to='/print'>
-                                    <Button className='button-continue mb-4' variant="primary" type="button" block>Pay Securely</Button>
-                                </Link>
+                                <Button onClick={check} className='button-continue mb-4' variant="primary" type="button" block>Pay Securely</Button>
                             </Col>
                         </Row>
                     </Form>
@@ -65,7 +104,7 @@ export const Payment = () =>{
             </Row>
         </Container>
     )
-};
+});
 
 const SecureInfo = styled.p`
     color: #CDCDCD;
