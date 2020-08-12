@@ -9,13 +9,13 @@ import { shippingInfo } from "../../../redux/action";
 import { paymentValidation } from "../../../validation";
 
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return{
         ...state
     }
 };
 
-export const Payment = connect(mapStateToProps, {shippingInfo}) (props =>{
+export const Payment = connect(mapStateToProps, {shippingInfo}) (props => {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         cardHolderName: '',
@@ -24,7 +24,7 @@ export const Payment = connect(mapStateToProps, {shippingInfo}) (props =>{
         securityCode: '',
     });
 
-    const handleChange = event =>{
+    const handleChange = event => {
         const {name, value} = event.target;
         setValues({
             ...values,
@@ -32,7 +32,7 @@ export const Payment = connect(mapStateToProps, {shippingInfo}) (props =>{
         })
     };
 
-    const check = () =>{
+    const check = () => {
         let errors = paymentValidation(values);
         if (Object.keys(errors).length){
             setErrors(paymentValidation(values));

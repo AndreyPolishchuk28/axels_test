@@ -9,7 +9,7 @@ import renderer from "react-test-renderer";
 describe("App", () => {
     it("should render App component", () => {
         const component = renderer.create(
-            <Provider store={store}>
+            <Provider store={ store }>
                 <Router>
                     <App />
                 </Router>

@@ -9,7 +9,7 @@ describe('validations', () => {
     });
 
     it('payment validations', () => {
-        const mockCallback = jest.fn(() => 'ha');
+        const mockCallback = jest.fn(() => 'Ok');
         paymentValidation(mockCallback);
         expect(mockCallback.mock.calls).toEqual([]);
     })

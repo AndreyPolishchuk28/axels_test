@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import renderer from 'react-test-renderer'
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 
-import {Shipping} from "../../components";
-import {store} from "../../redux/reducers";
+import { Shipping } from "../../components";
+import { store } from "../../redux/reducers";
 
 describe("Shipping", () => {
     it("should render Shipping component", () => {
@@ -19,4 +19,7 @@ describe("Shipping", () => {
         expect(tree).toMatchSnapshot();
     });
 });
+
+
+
 

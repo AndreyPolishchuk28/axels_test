@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import renderer from 'react-test-renderer'
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 
-import {Billing} from "../../components";
-import {store} from "../../redux/reducers";
+import { Billing } from "../../components";
+import { store } from "../../redux/reducers";
 
 describe("Billing", () => {
     it("should render Billing component", () => {

@@ -7,13 +7,13 @@ import '../shipping.scss'
 import { shippingInfo } from "../../../redux/action";
 import { validations } from "../../../validation";
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return{
         ...state
     }
 };
 
-export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
+export const Shipping = connect (mapStateToProps, {shippingInfo})(props => {
     const [values, setValues] = useState({
         fullName: '',
         dayTimePhone: '',
@@ -25,7 +25,7 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
     });
     const [errors, setErrors] = useState({});
 
-    const  check = () =>{
+    const  check = () => {
         let errors = validations(values);
         if (Object.keys(errors).length){
             setErrors(validations(values));
@@ -44,7 +44,7 @@ export const Shipping = connect (mapStateToProps, {shippingInfo})(props =>{
         }
     };
 
-    const handleChange = event =>{
+    const handleChange = event => {
         const {name, value} = event.target;
         setValues({
             ...values,

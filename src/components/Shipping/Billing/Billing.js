@@ -8,13 +8,13 @@ import { Container } from "../ShippingInfo/ShippingInfo";
 import { shippingInfo } from "../../../redux/action";
 import { validations } from "../../../validation";
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return{
         ...state
     }
 };
 
-export const Billing = connect (mapStateToProps, {shippingInfo})( props=>{
+export const Billing = connect (mapStateToProps, {shippingInfo})( props=> {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         fullName: '',
@@ -26,7 +26,7 @@ export const Billing = connect (mapStateToProps, {shippingInfo})( props=>{
         zip: '',
     });
 
-    const handleChange = event =>{
+    const handleChange = event => {
         const {name, value} = event.target;
         setValues({
             ...values,
@@ -34,7 +34,7 @@ export const Billing = connect (mapStateToProps, {shippingInfo})( props=>{
         })
     };
 
-    const check = () =>{
+    const check = () => {
         let errors = validations(values);
         if (Object.keys(errors).length){
             setErrors(validations(values));
@@ -53,11 +53,11 @@ export const Billing = connect (mapStateToProps, {shippingInfo})( props=>{
         }
         };
 
-    const returnLastEmail = (arr) =>{
+    const returnLastEmail = (arr) => {
         return arr[arr.length - 1];
     };
 
-    const sameInformation = () =>{
+    const sameInformation = () => {
         setValues(returnLastEmail(props.products.userAddress));
     };
 
