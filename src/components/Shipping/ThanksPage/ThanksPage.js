@@ -6,7 +6,6 @@ import { Order } from "../Order/Order";
 import { Container } from "../ShippingInfo/ShippingInfo";
 import { shippingInfo } from "../../../redux/action";
 
-
 const mapStateToProps = state =>{
     return{
         ...state
