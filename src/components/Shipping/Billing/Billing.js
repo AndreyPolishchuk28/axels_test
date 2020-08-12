@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-import {Button, Col, Form, Row} from "react-bootstrap";
-import {connect} from "react-redux";
+import React, { useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { connect } from "react-redux";
 import styled from "styled-components";
-import {Arrow, Title} from "../ShippingInfo/ShippingInfo";
-import {Order} from "../Order/Order";
-import {Container} from "../ShippingInfo/ShippingInfo";
-import {shippingInfo} from "../../../redux/action";
-import {validations} from "../../../validation";
+import { Arrow, Title } from "../ShippingInfo/ShippingInfo";
+import { Order } from "../Order/Order";
+import { Container } from "../ShippingInfo/ShippingInfo";
+import { shippingInfo } from "../../../redux/action";
+import { validations } from "../../../validation";
 
 const mapStateToProps = state =>{
     return{

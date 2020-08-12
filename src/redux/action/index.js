@@ -1,6 +1,6 @@
-import {put, take} from 'redux-saga/effects'
+import { put, take } from 'redux-saga/effects'
 
-const GET_PRODUCTS ='GET_PRODUCTS';
+export const GET_PRODUCTS ='GET_PRODUCTS';
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const SHIPPING_INFO = 'SHIPPING_INFO';
 
