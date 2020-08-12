@@ -1,22 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {getProducts} from "../../store/action";
 import styled from "styled-components";
 import '../shipping.scss'
+import { getProducts } from "../../../redux/action";
 
+let products;
 
-const mapStateToProps = state => ({
-    product: state.products.product
-});
-export const Order = connect (mapStateToProps, {getProducts})( props =>{
+const mapStateToProps = state => {
+    return{
+        ...state
+    }
+};
+export const Order = connect (mapStateToProps, {getProducts})( props => {
+    products = props.products.product;
     useEffect(() =>{
         props.getProducts();
     },[]);
 
     const totalPrice = () => {
         let cost = 0;
-        props.product.products.forEach(elem =>{
+        products.products.forEach(elem => {
             cost += elem.price
         });
         return cost
@@ -32,7 +36,7 @@ export const Order = connect (mapStateToProps, {getProducts})( props =>{
                     <Edit>edit order</Edit>
                 </Col>
             </Row>
-            {props.product.products ? props.product.products.map(item =>
+            {products.products && products.products.map(item =>
                 <Row key={item.id} className='wrapper-product ml-1'>
                     <Col xl={2} md={2} sm={2} xs={2} className='p-0'>
                         <FirstImg src={item.img} />
@@ -46,7 +50,7 @@ export const Order = connect (mapStateToProps, {getProducts})( props =>{
                         <Price>${item.price}</Price>
                     </Col>
                 </Row>
-            ):null
+            )
             }
             <Row className='wrapper-product ml-1'>
                 <Col xl={8} md={8} sm={8} xs={8} className='d-flex flex-column justify-content-between text-left p-0'>
@@ -55,14 +59,9 @@ export const Order = connect (mapStateToProps, {getProducts})( props =>{
                     <TotalPrice>Taxes</TotalPrice>
                 </Col>
                 <Col xl={4} md={4} sm={4} xs={4} className='text-right p-0 d-flex flex-column justify-content-between'>
-                    {props.product.products ?
-                        <TotalPrice>{totalPrice()}</TotalPrice> : null
-                    }
+                    {products.products && <TotalPrice>{totalPrice()}</TotalPrice>}
                     <TotalPrice>Free</TotalPrice>
-                    {props.product.products ?
-                        <TotalPrice>${props.product.taxes}</TotalPrice> : null
-                    }
-
+                    {products.products && <TotalPrice>${products.taxes}</TotalPrice>}
                 </Col>
             </Row>
             <Row className='mt-3'>
@@ -70,9 +69,7 @@ export const Order = connect (mapStateToProps, {getProducts})( props =>{
                     <TotalPricePurple>Total</TotalPricePurple>
                 </Col>
                 <Col className='text-right pb-5'>
-                    {props.product.products ?
-                        <TotalPricePurple>${totalPrice() + props.product.taxes}</TotalPricePurple> : null
-                    }
+                    {products.products && <TotalPricePurple>${totalPrice() + products.taxes}</TotalPricePurple>}
                 </Col>
             </Row>
             <Row className='text-center mt-5'>

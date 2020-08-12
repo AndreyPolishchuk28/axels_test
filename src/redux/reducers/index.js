@@ -4,12 +4,12 @@ import {getProductsSaga, shippingInfoSaga} from "../action";
 import {SET_PRODUCTS, SHIPPING_INFO} from "../action";
 import {all} from 'redux-saga/effects'
 
-const initialState = {
+export const initialState = {
     product: [],
     userAddress: []
 };
 
-const productsReducer = (state = initialState, action) => {
+export const productsReducer = (state = initialState, action) => {
     const {type, payload} = action;
     switch (type) {
         case SET_PRODUCTS:{
@@ -21,7 +21,7 @@ const productsReducer = (state = initialState, action) => {
         case SHIPPING_INFO: {
             return {
                 ...state,
-                userAddress: payload
+                userAddress: [...state.userAddress, payload]
             }
         }
         default: return state

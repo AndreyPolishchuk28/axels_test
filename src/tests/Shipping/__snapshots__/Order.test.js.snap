@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order should render Order component 1`] = `
+<div
+  className="sc-AxjAm dBGbwJ"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h3
+        className="sc-AxirZ iNpdgK"
+      >
+        Order Summary
+      </h3>
+    </div>
+    <div
+      className="text-right col"
+    >
+      <span
+        className="sc-AxiKw kMCivh"
+      >
+        edit order
+      </span>
+    </div>
+  </div>
+  <div
+    className="wrapper-product ml-1 row"
+  >
+    <div
+      className="d-flex flex-column justify-content-between text-left p-0 col-xl-8 col-md-8 col-sm-8 col-8"
+    >
+      <span
+        className="sc-AxmLO gfOsYl"
+      >
+        Subtotal
+      </span>
+      <span
+        className="sc-AxmLO gfOsYl"
+      >
+        Shipping
+      </span>
+      <span
+        className="sc-AxmLO gfOsYl"
+      >
+        Taxes
+      </span>
+    </div>
+    <div
+      className="text-right p-0 d-flex flex-column justify-content-between col-xl-4 col-md-4 col-sm-4 col-4"
+    >
+      <span
+        className="sc-AxmLO gfOsYl"
+      >
+        Free
+      </span>
+    </div>
+  </div>
+  <div
+    className="mt-3 row"
+  >
+    <div
+      className="col"
+    >
+      <span
+        className="sc-fzozJi ctA-DOD"
+      >
+        Total
+      </span>
+    </div>
+    <div
+      className="text-right pb-5 col"
+    />
+  </div>
+  <div
+    className="text-center mt-5 row"
+  >
+    <div
+      className="col"
+    >
+      <p
+        className="sc-fzoLsD fESKKq"
+      >
+        All purchases are subject to our 
+        <span
+          className="sc-fzpans gTQLxR"
+        >
+          Terms and Conditions
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
