@@ -1,11 +1,11 @@
-import React, {useState} from "react";
-import {Row, Col, Button, Form} from 'react-bootstrap'
-import {connect} from "react-redux";
+import React, { useState } from "react";
+import { Row, Col, Button, Form } from 'react-bootstrap'
+import { connect } from "react-redux";
 import styled from "styled-components";
-import {Order} from "../Order/Order";
+import { Order } from "../Order/Order";
 import '../shipping.scss'
-import {shippingInfo} from "../../../redux/action";
-import {validations} from "../../../validation";
+import { shippingInfo } from "../../../redux/action";
+import { validations } from "../../../validation";
 
 const mapStateToProps = state =>{
     return{

@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {Col, Row} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import styled from "styled-components";
-import {connect} from "react-redux";
-import {Order} from "../Order/Order";
-import {Container} from "../ShippingInfo/ShippingInfo";
-import {shippingInfo} from "../../../redux/action";
+import { connect } from "react-redux";
+import { Order } from "../Order/Order";
+import { Container } from "../ShippingInfo/ShippingInfo";
+import { shippingInfo } from "../../../redux/action";
 
 
 const mapStateToProps = state =>{
