@@ -1,30 +1,29 @@
-import React, {useEffect, useState} from "react";
-import {Col, Row} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import styled from "styled-components";
-import {connect} from "react-redux";
-import {Order} from "../Order/Order";
-import {Container} from "../ShippingInfo/ShippingInfo";
-import {shippingInfo} from "../../../redux/action";
+import { connect } from "react-redux";
+import { Order } from "../Order/Order";
+import { Container } from "../ShippingInfo/ShippingInfo";
+import { shippingInfo } from "../../../redux/action";
 
-
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return{
         ...state
     }
 };
 
-export const ThanksPage = connect(mapStateToProps, {shippingInfo})(props =>{
+export const ThanksPage = connect(mapStateToProps, {shippingInfo})(props => {
     const [email, setEmail] = useState();
 
-    const returnLastEmail = (arr) =>{
+    const returnLastEmail = (arr) => {
         return arr[arr.length - 2];
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         if (props.products){
             setEmail(returnLastEmail(props.products.userAddress))
         }
-    },[]);
+    },[props.products]);
 
     return(
         <Container className='container-fluid'>

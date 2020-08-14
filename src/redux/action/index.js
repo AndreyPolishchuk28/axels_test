@@ -37,7 +37,7 @@ export function* getProductsSaga() {
 export function* shippingInfoSaga() {
     while (true){
         try {
-            const {payload} = yield take(SHIPPING_INFO);
+            const { payload } = yield take(SHIPPING_INFO);
             const response = yield fetch('https://demo3830727.mockable.io/info', {
                     method: 'POST',
                     headers: {

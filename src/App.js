@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {Shipping, Billing, Payment, ThanksPage} from "./components";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Shipping, Billing, Payment, ThanksPage } from "./components";
 
 function App() {
   return (

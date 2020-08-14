@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`First snapshot should render Shipping component 1`] = `
+exports[`Payment should render Payment component 1`] = `
 <div
   className="sc-fzplWN hBpaEh container-fluid"
 >

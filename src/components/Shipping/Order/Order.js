@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 };
 export const Order = connect (mapStateToProps, {getProducts})( props => {
     products = props.products.product;
+
     useEffect(() =>{
         props.getProducts();
     },[]);
