@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import styled from "styled-components";
-import '../shipping.scss'
-import { getProducts } from "../../../redux/action";
+
+import { Container, Title, Edit, FirstImg, NameProduct, Color, Quantity, Price, TotalPrice, TotalPricePurple, Conditions, UnderlineConditions } from '../../styled/Shipping/order'
+import { getProducts } from '../../redux/ducks';
 
 let products;
 
-const mapStateToProps = state => {
-    return{
-        ...state
-    }
-};
-export const Order = connect (mapStateToProps, {getProducts})( props => {
+const mapStateToProps = state => ({...state});
+
+export const Order = connect (mapStateToProps, { getProducts })( props => {
     products = props.products.product;
 
     useEffect(() =>{
@@ -21,9 +18,7 @@ export const Order = connect (mapStateToProps, {getProducts})( props => {
 
     const totalPrice = () => {
         let cost = 0;
-        products.products.forEach(elem => {
-            cost += elem.price
-        });
+        products.products.forEach(elem => cost += elem.price);
         return cost
     };
 
@@ -79,78 +74,10 @@ export const Order = connect (mapStateToProps, {getProducts})( props => {
                 </Col>
             </Row>
         </Container>
-
     )
 });
 
-const Container = styled.div`
-    padding-top: 20px;
-`;
 
-const Title = styled.h3`
-    color: #8752B2;
-    font-size: 20px;
-    font-weight: 400;
-`;
-
-const Edit = styled.span`
-    text-decoration: underline;
-    cursor: pointer;
-`;
-
-const FirstImg = styled.img`
-    width: 50px;
-    height: 100%;
-`;
-
-const NameProduct = styled.p`
-    color: #BDBFC1;
-    margin: 0;
-    font-size: 14px;
-    line-height: 1;
-`;
-
-const Color = styled.p`
-    color: #000;
-    font-size: 12px;
-    margin: 0;
-    line-height: 1;
-`;
-
-const Quantity = styled.p`
-    color: #000;
-    font-size: 12px;
-    margin: 0;
-    line-height: 1;
-`;
-
-const Price = styled.span`
-    color: #BDBFC1;
-    font-size: 16px;
-    line-height: 1;
-`;
-
-const TotalPrice = styled.span`
-    color: #BDBFC1;
-    font-size: 16px;
-    line-height: 1.4;
-`;
-
-const TotalPricePurple = styled.span`
-    color: #5B3A72;
-    font-weight: bold;
-`;
-
-const Conditions = styled.p`
-    color: #CDCECF;
-    font-size: 12px;
-`;
-
-const UnderlineConditions = styled.span`
-    text-decoration: underline;
-    color: #CDCECF;
-    font-size: 12px;
-`;
 
 
 

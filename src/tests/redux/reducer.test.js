@@ -1,10 +1,10 @@
 import React from "react";
-import { productsReducer } from "../../redux/reducers";
-import { initialState } from "../../redux/reducers";
-import { GET_PRODUCTS } from "../../redux/action";
-import { shippingInfo } from "../../redux/action";
+import { productsReducer } from "../../redux/store";
+import { initialState } from "../../redux/store";
+import { GET_PRODUCTS } from "../../redux/ducks";
+import { shippingInfo } from "../../redux/ducks";
 
-describe('reducer test', () => {
+describe('ducks test', () => {
     let state = {
         "product": [],
         "userAddress": [],

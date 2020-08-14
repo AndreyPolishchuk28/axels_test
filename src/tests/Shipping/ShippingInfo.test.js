@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import { Provider } from "react-redux";
 
 import { Shipping } from "../../components";
-import { store } from "../../redux/reducers";
+import { store } from "../../redux/store";
 
 describe("Shipping", () => {
     it("should render Shipping component", () => {

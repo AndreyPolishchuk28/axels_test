@@ -1,24 +1,39 @@
-import { put, take } from 'redux-saga/effects'
+import { put, take, all } from 'redux-saga/effects'
 
-export const GET_PRODUCTS ='GET_PRODUCTS';
-export const SET_PRODUCTS = 'SET_PRODUCTS';
-export const SHIPPING_INFO = 'SHIPPING_INFO';
+const GET_PRODUCTS ='GET_PRODUCTS';
+const SET_PRODUCTS = 'SET_PRODUCTS';
+const SHIPPING_INFO = 'SHIPPING_INFO';
 
-export const getProducts = (payload) =>{
-    return{
+export const getProducts = (payload) => ({
         type: GET_PRODUCTS,
         payload: payload
-    }
-};
+});
 
-export const shippingInfo = (payload) =>{
-    return{
+export const shippingInfo = (payload) => ({
         type: SHIPPING_INFO,
         payload: payload
+});
+
+const initialState = {
+    product: [],
+    userAddress: []
+};
+
+export const productsReducer = (state = initialState, action) => {
+    const {type, payload} = action;
+    switch (type) {
+        case SET_PRODUCTS:
+            return{...state, product: payload};
+
+        case SHIPPING_INFO:
+            return {...state, userAddress: [...state.userAddress, payload]};
+
+        default: return state
     }
 };
 
-export function* getProductsSaga() {
+//Saga
+function* getProductsSaga() {
     while (true){
         try {
             yield take(GET_PRODUCTS);
@@ -34,7 +49,7 @@ export function* getProductsSaga() {
     }
 }
 
-export function* shippingInfoSaga() {
+function* shippingInfoSaga() {
     while (true){
         try {
             const { payload } = yield take(SHIPPING_INFO);
@@ -53,4 +68,10 @@ export function* shippingInfoSaga() {
     }
 }
 
+export function* rootSaga() {
+    yield all([
+        getProductsSaga(),
+        shippingInfoSaga()
+    ])
+}
 

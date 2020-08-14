@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import { Provider } from "react-redux";
 
 import { Billing } from "../../components";
-import { store } from "../../redux/reducers";
+import { store } from "../../redux/store";
 
 describe("Billing", () => {
     it("should render Billing component", () => {

@@ -1,21 +1,17 @@
-import React, {useState} from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import { Arrow, Title } from "../ShippingInfo/ShippingInfo";
-import { Order } from "../Order/Order";
-import { Container } from "../ShippingInfo/ShippingInfo";
-import { shippingInfo } from "../../../redux/action";
-import { paymentValidation } from "../../../validation";
+import React, { useState } from 'react';
+import { Button, Col, Form, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
+import { Arrow, Title, Container } from '../../styled/similarStyle';
+import { SecureInfo } from '../../styled/Shipping/payment';
+import { Order } from './Order';
+import { shippingInfo } from '../../redux/ducks';
+import { paymentValidation } from '../../validation';
 
 
-const mapStateToProps = state => {
-    return{
-        ...state
-    }
-};
+const mapStateToProps = state => ({...state});
 
-export const Payment = connect(mapStateToProps, {shippingInfo}) (props => {
+export const Payment = connect(mapStateToProps, { shippingInfo }) (props => {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         cardHolderName: '',
@@ -36,7 +32,6 @@ export const Payment = connect(mapStateToProps, {shippingInfo}) (props => {
         let errors = paymentValidation(values);
         if (Object.keys(errors).length){
             setErrors(paymentValidation(values));
-            console.log(errors);
         }else{
             props.shippingInfo({
                 type: 'Payment',
@@ -106,7 +101,4 @@ export const Payment = connect(mapStateToProps, {shippingInfo}) (props => {
     )
 });
 
-const SecureInfo = styled.p`
-    color: #CDCDCD;
-    font-size: 18px;
-`;
+
