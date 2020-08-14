@@ -36,7 +36,6 @@ export const Payment = connect(mapStateToProps, {shippingInfo}) (props => {
         let errors = paymentValidation(values);
         if (Object.keys(errors).length){
             setErrors(paymentValidation(values));
-            console.log(errors);
         }else{
             props.shippingInfo({
                 type: 'Payment',
