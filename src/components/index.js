@@ -1,5 +1,5 @@
-export { Shipping } from './Shipping/ShippingInfo/ShippingInfo';
-export { Billing } from './Shipping/Billing/Billing';
-export { Payment } from './Shipping/Payment/Payment';
-export { ThanksPage } from './Shipping/ThanksPage/ThanksPage';
+export { Shipping } from './Shipping/ShippingInfo';
+export { Billing } from './Shipping/Billing';
+export { Payment } from './Shipping/Payment';
+export { ThanksPage } from './Shipping/ThanksPage';
 

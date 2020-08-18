@@ -1,30 +1,44 @@
-import React, { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import { Arrow, Title } from "../ShippingInfo/ShippingInfo";
-import { Order } from "../Order/Order";
-import { Container } from "../ShippingInfo/ShippingInfo";
-import { shippingInfo } from "../../../redux/action";
-import { validations } from "../../../validation";
+import React, { useState } from 'react';
+import { Row, Col, Button, Form } from 'react-bootstrap'
+import { connect } from 'react-redux';
 
-const mapStateToProps = state => {
-    return{
-        ...state
-    }
-};
+import { Container, Arrow, Title } from '../../styled/similarStyle'
+import { Order } from './Order';
+import { shippingInfo } from '../../redux/ducks';
+import { validations } from '../../validation';
 
-export const Billing = connect (mapStateToProps, {shippingInfo})( props=> {
-    const [errors, setErrors] = useState({});
+const mapStateToProps = state => ({...state});
+
+export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
     const [values, setValues] = useState({
         fullName: '',
-        email: '',
+        dayTimePhone: '',
         streetAddress: '',
         apt: '',
         city: '',
         country: '',
         zip: '',
     });
+    const [errors, setErrors] = useState({});
+
+    const  check = () => {
+        let errors = validations(values);
+        if (Object.keys(errors).length){
+            setErrors(validations(values));
+        }else{
+            props.shippingInfo({
+                type: 'shippingInfo',
+                fullName: values.fullName,
+                dayTimePhone: values.dayTimePhone,
+                streetAddress: values.streetAddress,
+                apt: values.apt,
+                city: values.city,
+                country: values.country,
+                zip: values.zip,
+            });
+            props.history.push('/billing')
+        }
+    };
 
     const handleChange = event => {
         const {name, value} = event.target;
@@ -34,68 +48,41 @@ export const Billing = connect (mapStateToProps, {shippingInfo})( props=> {
         })
     };
 
-    const check = () => {
-        let errors = validations(values);
-        if (Object.keys(errors).length){
-            setErrors(validations(values));
-        }else{
-            props.shippingInfo({
-                type: 'billingInfo',
-                fullName: values.fullName,
-                email: values.email,
-                streetAddress: values.streetAddress,
-                apt: values.apt,
-                city: values.city,
-                country: values.country,
-                zip: values.zip,
-            });
-            props.history.push('/payment')
-        }
-        };
-
-    const returnLastEmail = (arr) => {
-        return arr[arr.length - 1];
-    };
-
-    const sameInformation = () => {
-        setValues(returnLastEmail(props.products.userAddress));
-    };
-
     return(
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
                     <Row>
                         <Col className='d-flex align-items-center shipping-wrapper'>
-                            <span>Shipping</span>
+                            <span className='shipping-color'>Shipping</span>
                             <Arrow/>
-                            <span className='shipping-color'>Billing</span>
+                            <span>Billing</span>
                             <Arrow/>
                             <span>Payment</span>
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={8} md={8} sm={8} xs={8} className='text-left'>
-                            <Title>Billing Information</Title>
-                        </Col>
-                        <Col lg={4} md={4} sm={4} xs={4} className='pr-3'>
-                            <SameAsShipping onClick={sameInformation} className="text-right">
-                                Same as shipping
-                            </SameAsShipping>
+                        <Col className='text-left'>
+                            <Title>Shipping Info</Title>
                         </Col>
                     </Row>
                     <Form>
                         <Form.Group>
-                            <Form.Label className='recipient mb-3'>Billing Contact</Form.Label>
-                            <Form.Control onChange={handleChange} name='fullName' value={values.fullName} type="text" placeholder="Full Name" />
+                            <Form.Label className='recipient mb-3'>Recipient</Form.Label>
+                            <Form.Control name='fullName' type="text" placeholder="Full Name" value={values.fullName} onChange={handleChange}/>
                             {errors && <Form.Text className="errors">{errors.fullName}</Form.Text>}
                             <Row className='daytime'>
+                                <Col md={8} sm={8} xs={8}>
+                                    <Form.Control name='dayTimePhone' type="text" placeholder="Daytime Phone" value={values.dayTimePhone} onChange={handleChange} />
+                                    {errors && <Form.Text className="errors">{errors.dayTimePhone}</Form.Text>}
+                                </Col>
                                 <Col>
-                                    <Form.Control required onChange={handleChange} name='email' value={props.email} type="text" placeholder="Email" />
-                                    {errors && <Form.Text className="errors">{errors.email}</Form.Text>}
+                                    <Form.Text className="text-muted">
+                                        For delivery quetions only
+                                    </Form.Text>
                                 </Col>
                             </Row>
-                            <Form.Label className='recipient mb-3'>Billing Address</Form.Label>
+                            <Form.Label className='recipient mb-0'>Address</Form.Label>
                             <Form.Control onChange={handleChange} name='streetAddress' className='indent' type="text" value={values.streetAddress} placeholder="Street Address" required/>
                             {errors && <Form.Text className="errors">{errors.streetAddress}</Form.Text>}
                             <Form.Control onChange={handleChange} name='apt' className='indent' type="text" value={values.apt} placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
@@ -132,10 +119,4 @@ export const Billing = connect (mapStateToProps, {shippingInfo})( props=> {
     )
 });
 
-const SameAsShipping = styled.p`
-    color: #8752B2;
-    text-decoration: underline;
-    padding-top: 35px;
-    font-size: 13px;
-    cursor: pointer;
-`;
+

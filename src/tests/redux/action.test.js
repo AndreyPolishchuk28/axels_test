@@ -1,5 +1,5 @@
-import { GET_PRODUCTS, SHIPPING_INFO } from "../../redux/action";
-import { getProducts, shippingInfo } from "../../redux/action";
+import { GET_PRODUCTS, SHIPPING_INFO } from "../../redux/ducks";
+import { getProducts, shippingInfo } from "../../redux/ducks";
 
 describe('redux unit test', () => {
     it('should create fetch GET_PRODUCTS', () =>{

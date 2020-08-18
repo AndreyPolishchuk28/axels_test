@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import { Order } from "../Order/Order";
-import { Container } from "../ShippingInfo/ShippingInfo";
-import { shippingInfo } from "../../../redux/action";
+import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-const mapStateToProps = state => {
-    return{
-        ...state
-    }
-};
+import { Order } from './Order';
+import { Container } from '../../styled/similarStyle';
+import { Title, OrderNumber, EmailInfo, Email, Date, Print } from '../../styled/Shipping/thanksPage';
+import { shippingInfo } from '../../redux/ducks';
 
-export const ThanksPage = connect(mapStateToProps, {shippingInfo})(props => {
+const mapStateToProps = state => ({...state});
+
+export const ThanksPage = connect(mapStateToProps, { shippingInfo })( props => {
     const [email, setEmail] = useState();
 
-    const returnLastEmail = (arr) => {
-        return arr[arr.length - 2];
-    };
+    const returnLastEmail = (arr) => arr[arr.length - 2];
 
     useEffect(() => {
         if (props.products){
@@ -64,42 +59,4 @@ export const ThanksPage = connect(mapStateToProps, {shippingInfo})(props => {
     )
 });
 
-const Title = styled.p`
-    color: #8752B2;
-    font-weight: 400;
-    font-size: 28px;
-`;
 
-const OrderNumber = styled.p`
-    color: #000;
-    font-weight: 600;
-    font-size: 18px;
-`;
-
-const EmailInfo = styled.p`
-    color: #000;
-    font-weight: 400;
-    font-size: 18px;
-`;
-
-const Email = styled.span`
-    color: #A279C3;
-    font-weight: 400;
-    font-size: 18px;
-    text-decoration: underline;
-    cursor: pointer;
-`;
-
-const Date = styled.p`
-    color: #000;
-    font-weight: 600;
-    font-size: 18px;
-`;
-
-const Print = styled.p`
-    color: #A279C3;
-    font-weight: 400;
-    font-size: 14px;
-    text-decoration: underline;
-    cursor: pointer;
-`;
