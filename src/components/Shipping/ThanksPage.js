@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { Order } from './Order';
 import { Container } from '../../styled/similarStyle';
 import { Title, OrderNumber, EmailInfo, Email, Date, Print } from '../../styled/Shipping/thanksPage';
-import { shippingInfo } from '../../redux/ducks';
+import { shippingInfo } from '../../redux/ducks/products';
 
 const mapStateToProps = state => ({...state});
 
-export const ThanksPage = connect(mapStateToProps, { shippingInfo })( props => {
+export const ThanksPage = connect(mapStateToProps, { shippingInfo })(props => {
     const [email, setEmail] = useState();
 
     const returnLastEmail = (arr) => arr[arr.length - 2];
@@ -58,5 +58,3 @@ export const ThanksPage = connect(mapStateToProps, { shippingInfo })( props => {
         </Container>
     )
 });
-
-

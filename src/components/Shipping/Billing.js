@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { Container, Arrow, Title } from '../../styled/similarStyle'
-import { SameAsShipping } from '../../styled/Shipping/billing'
+import { Container, Arrow, Title } from '../../styled/similarStyle';
+import { SameAsShipping } from '../../styled/Shipping/billing';
 import { Order } from './Order';
-import { shippingInfo } from '../../redux/ducks';
-import { validations } from '../../validation';
+import { shippingInfo } from '../../redux/ducks/products';
+import { check } from '../../validation';
 
 const mapStateToProps = state => ({...state});
 
-export const Billing = connect (mapStateToProps, { shippingInfo })( props=> {
+export const Billing = connect (mapStateToProps, { shippingInfo })(props => {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         fullName: '',
@@ -29,25 +29,6 @@ export const Billing = connect (mapStateToProps, { shippingInfo })( props=> {
             [name]: value
         })
     };
-
-    const check = () => {
-        let errors = validations(values);
-        if (Object.keys(errors).length){
-            setErrors(validations(values));
-        }else{
-            props.shippingInfo({
-                type: 'billingInfo',
-                fullName: values.fullName,
-                email: values.email,
-                streetAddress: values.streetAddress,
-                apt: values.apt,
-                city: values.city,
-                country: values.country,
-                zip: values.zip,
-            });
-            props.history.push('/payment')
-        }
-        };
 
     const returnLastEmail = (arr) => arr[arr.length - 1];
 
@@ -70,7 +51,7 @@ export const Billing = connect (mapStateToProps, { shippingInfo })( props=> {
                     </Row>
                     <Row>
                         <Col lg={8} md={8} sm={8} xs={8} className='text-left'>
-                            <Title>Billing Information</Title>
+                            <Title>Billing</Title>
                         </Col>
                         <Col lg={4} md={4} sm={4} xs={4} className='pr-3'>
                             <SameAsShipping onClick={sameInformation} className="text-right">
@@ -114,7 +95,7 @@ export const Billing = connect (mapStateToProps, { shippingInfo })( props=> {
                     </Form>
                     <Row>
                         <Col md={7} sm={7} xs={7}>
-                            <Button onClick={check} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
+                            <Button onClick={() => check(values, setErrors, props, 'payment')} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -125,5 +106,3 @@ export const Billing = connect (mapStateToProps, { shippingInfo })( props=> {
         </Container>
     )
 });
-
-

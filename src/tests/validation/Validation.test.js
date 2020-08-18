@@ -1,5 +1,4 @@
-import React from "react";
-import { validations, paymentValidation } from "../../validation";
+import { validations, paymentValidation } from '../../validation';
 
 describe('validations', () => {
     it('shipping validations', () => {

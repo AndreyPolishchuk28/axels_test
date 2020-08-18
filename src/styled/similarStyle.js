@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mainColor, device } from './globalVariables';
 
 export const Container = styled.div`
     background-color: #E6E9F0;
@@ -13,16 +14,16 @@ export const Container = styled.div`
     }
     
     .button-continue{
-      background-color: #8752B2;
-      border: 1px solid #8752B2;
+      background-color: ${mainColor};
+      border: 1px solid ${mainColor};
     }
 
     .button-continue:hover{
-      background-color: #8752B2;
+      background-color: ${mainColor};
     }
     
     .recipient{
-      color: #8752B2;
+      color: ${mainColor};
     }
     
     .daytime{
@@ -51,7 +52,7 @@ export const Container = styled.div`
     }
 
     .shipping-color{
-      color: #8752B2;
+      color: ${mainColor};
     }
     
     .errors{
@@ -62,7 +63,7 @@ export const Container = styled.div`
       font-size: 20px;
     }
     
-    @media screen and (min-width: 1200px) {
+    @media screen and ${device.laptop} {
      .wrapper-shipping-width{
         max-width: 450px;
      }
@@ -72,7 +73,7 @@ export const Container = styled.div`
      }
     }
     
-    @media screen and (min-width: 992px) {
+    @media screen and ${device.tabletL} {
      .wrapper-shipping-width{
        min-width: 450px;
        max-width: 450px;
@@ -97,7 +98,7 @@ export const Arrow = styled.div`
 `;
 
 export const Title = styled.h2`
-    color: #8752B2;
+    color: ${mainColor};
     margin-top: 25px;
     font-size: 30px;
 `;

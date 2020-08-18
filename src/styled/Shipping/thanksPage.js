@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { mainColor, lightPurple } from '../globalVariables';
 
 export const Title = styled.p`
-    color: #8752B2;
+    color: ${mainColor};
     font-weight: 400;
     font-size: 28px;
 `;
@@ -19,7 +20,7 @@ export const EmailInfo = styled.p`
 `;
 
 export const Email = styled.span`
-    color: #A279C3;
+    color: ${lightPurple};
     font-weight: 400;
     font-size: 18px;
     text-decoration: underline;
@@ -33,7 +34,7 @@ export const Date = styled.p`
 `;
 
 export const Print = styled.p`
-    color: #A279C3;
+    color: ${lightPurple};
     font-weight: 400;
     font-size: 14px;
     text-decoration: underline;

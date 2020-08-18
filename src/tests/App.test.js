@@ -1,15 +1,14 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
-import App from "../App";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from '../App';
 import { store } from '../redux/store';
-import renderer from "react-test-renderer";
-
+import renderer from 'react-test-renderer';
 
 describe("App", () => {
     it("should render App component", () => {
         const component = renderer.create(
-            <Provider store={ store }>
+            <Provider store={store}>
                 <Router>
                     <App />
                 </Router>
@@ -19,4 +18,3 @@ describe("App", () => {
         expect(tree).toMatchSnapshot();
     });
 });
-

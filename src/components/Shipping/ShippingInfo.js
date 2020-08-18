@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, Form } from 'react-bootstrap'
+import { Row, Col, Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { Container, Arrow, Title } from '../../styled/similarStyle'
+import { Container, Arrow, Title } from '../../styled/similarStyle';
 import { Order } from './Order';
-import { shippingInfo } from '../../redux/ducks';
-import { validations } from '../../validation';
+import { shippingInfo } from '../../redux/ducks/products';
+import { check } from '../../validation';
 
 const mapStateToProps = state => ({...state});
 
@@ -20,25 +20,6 @@ export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
         zip: '',
     });
     const [errors, setErrors] = useState({});
-
-    const  check = () => {
-        let errors = validations(values);
-        if (Object.keys(errors).length){
-            setErrors(validations(values));
-        }else{
-            props.shippingInfo({
-                type: 'shippingInfo',
-                fullName: values.fullName,
-                dayTimePhone: values.dayTimePhone,
-                streetAddress: values.streetAddress,
-                apt: values.apt,
-                city: values.city,
-                country: values.country,
-                zip: values.zip,
-            });
-            props.history.push('/billing')
-        }
-    };
 
     const handleChange = event => {
         const {name, value} = event.target;
@@ -107,7 +88,7 @@ export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
                     </Form>
                     <Row>
                         <Col md={7} sm={7} xs={7}>
-                            <Button onClick={check} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
+                            <Button onClick={() => check(values, setErrors, props, 'billing')} className='button-continue mb-4' variant="primary" type="button" block>Continue</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -118,5 +99,3 @@ export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
         </Container>
     )
 });
-
-

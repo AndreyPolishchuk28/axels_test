@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { mainColor, lightGrey } from '../globalVariables';
 
 export const Container = styled.div`
     padding-top: 20px;
 `;
 
 export const Title = styled.h3`
-    color: #8752B2;
+    color: ${mainColor};
     font-size: 20px;
     font-weight: 400;
 `;
@@ -21,7 +22,7 @@ export const FirstImg = styled.img`
 `;
 
 export const NameProduct = styled.p`
-    color: #BDBFC1;
+    color: ${lightGrey};
     margin: 0;
     font-size: 14px;
     line-height: 1;
@@ -42,13 +43,13 @@ export const Quantity = styled.p`
 `;
 
 export const Price = styled.span`
-    color: #BDBFC1;
+    color: ${lightGrey};
     font-size: 16px;
     line-height: 1;
 `;
 
 export const TotalPrice = styled.span`
-    color: #BDBFC1;
+    color: ${lightGrey};
     font-size: 16px;
     line-height: 1.4;
 `;

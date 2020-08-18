@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import { Arrow, Title, Container } from '../../styled/similarStyle';
 import { SecureInfo } from '../../styled/Shipping/payment';
 import { Order } from './Order';
-import { shippingInfo } from '../../redux/ducks';
+import { shippingInfo } from '../../redux/ducks/products';
 import { paymentValidation } from '../../validation';
-
 
 const mapStateToProps = state => ({...state});
 
-export const Payment = connect(mapStateToProps, { shippingInfo }) (props => {
+export const Payment = connect (mapStateToProps, { shippingInfo })(props => {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         cardHolderName: '',
@@ -30,12 +29,15 @@ export const Payment = connect(mapStateToProps, { shippingInfo }) (props => {
 
     const check = () => {
         let errors = paymentValidation(values);
-        if (Object.keys(errors).length){
+        if (Object.keys(errors).length) {
             setErrors(paymentValidation(values));
-        }else{
+        } else {
             props.shippingInfo({
                 type: 'Payment',
+                cardHolderName: values.cardHolderName,
+                cardNumber: values.cardNumber,
                 expireDate: values.expireDate,
+                securityCode: values.securityCode
             });
             props.history.push('/print')
         }
@@ -100,5 +102,3 @@ export const Payment = connect(mapStateToProps, { shippingInfo }) (props => {
         </Container>
     )
 });
-
-
