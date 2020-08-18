@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Shipping, Billing, Payment, ThanksPage } from "./components";
+import { Shipping, Billing, Payment, ThanksPage } from './components';
 
 function App() {
   return (
