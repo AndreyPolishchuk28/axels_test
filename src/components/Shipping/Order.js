@@ -2,17 +2,15 @@ import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { Container, Title, Edit, FirstImg, NameProduct, Color, Quantity, Price, TotalPrice, TotalPricePurple, Conditions, UnderlineConditions } from '../../styled/Shipping/order'
-import { getProducts } from '../../redux/ducks';
-
-let products;
+import { Container, Title, Edit, FirstImg, NameProduct, Color, Quantity, Price, TotalPrice, TotalPricePurple, Conditions, UnderlineConditions } from '../../styled/Shipping/order';
+import { getProducts } from '../../redux/ducks/products';
 
 const mapStateToProps = state => ({...state});
 
-export const Order = connect (mapStateToProps, { getProducts })( props => {
-    products = props.products.product;
+export const Order = connect (mapStateToProps, { getProducts })(props => {
+    const products = props.products.product;
 
-    useEffect(() =>{
+    useEffect(() => {
         props.getProducts();
     },[]);
 
@@ -76,8 +74,3 @@ export const Order = connect (mapStateToProps, { getProducts })( props => {
         </Container>
     )
 });
-
-
-
-
-

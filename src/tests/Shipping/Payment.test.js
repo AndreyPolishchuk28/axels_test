@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import renderer from 'react-test-renderer'
-import { Provider } from "react-redux";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 
-import { Payment } from "../../components";
-import { store } from "../../redux/store";
+import { Payment } from '../../components/Shipping/Payment';
+import { store } from '../../redux/store';
 
 describe("Payment", () => {
     it("should render Payment component", () => {
@@ -19,4 +19,3 @@ describe("Payment", () => {
         expect(tree).toMatchSnapshot();
     });
 });
-

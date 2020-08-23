@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import renderer from 'react-test-renderer'
-import { Provider } from "react-redux";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 
-import { ThanksPage } from "../../components";
-import { store } from "../../redux/store";
+import { ThanksPage } from '../../components';
+import { store } from '../../redux/store';
 
 describe("ThanksPage", () => {
     it("should render ThanksPage component", () => {
@@ -19,4 +19,3 @@ describe("ThanksPage", () => {
         expect(tree).toMatchSnapshot();
     });
 });
-

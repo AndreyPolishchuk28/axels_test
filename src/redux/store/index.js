@@ -1,29 +1,28 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { rootSaga } from '../ducks';
-import { productsReducer } from '../ducks';
-
+import { rootSaga } from '../ducks/products';
+import { productsReducer } from '../ducks/products';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const saveToLocalStorage = state => {
     try{
         const serializedState = JSON.stringify(state);
-        localStorage.setItem('state', serializedState)
+        localStorage.setItem('state', serializedState);
     } catch (e) {
         console.log(e);
     }
 };
 
 const loadFromLocalStorage = () => {
-    try{
+    try {
         const serializedState = localStorage.getItem('state');
         if(serializedState === null) return undefined;
-        return JSON.parse(serializedState)
+        return JSON.parse(serializedState);
     } catch (e) {
         console.log(e);
-        return undefined
+        return undefined;
     }
 };
 const persistedState = loadFromLocalStorage();
@@ -34,8 +33,3 @@ export const store = createStore(combineReducers({
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 sagaMiddleware.run(rootSaga);
-
-
-
-
-

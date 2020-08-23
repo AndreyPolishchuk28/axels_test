@@ -1,26 +1,26 @@
-import { put, take, all } from 'redux-saga/effects'
+import { put, take, all } from 'redux-saga/effects';
 
-const GET_PRODUCTS ='GET_PRODUCTS';
+export const GET_PRODUCTS ='GET_PRODUCTS';
 const SET_PRODUCTS = 'SET_PRODUCTS';
-const SHIPPING_INFO = 'SHIPPING_INFO';
+export const SHIPPING_INFO = 'SHIPPING_INFO';
 
 export const getProducts = (payload) => ({
-        type: GET_PRODUCTS,
-        payload: payload
+    type: GET_PRODUCTS,
+    payload: payload
 });
 
 export const shippingInfo = (payload) => ({
-        type: SHIPPING_INFO,
-        payload: payload
+    type: SHIPPING_INFO,
+    payload: payload
 });
 
-const initialState = {
+export const initialState = {
     product: [],
     userAddress: []
 };
 
 export const productsReducer = (state = initialState, action) => {
-    const {type, payload} = action;
+    const { type, payload } = action;
     switch (type) {
         case SET_PRODUCTS:
             return{...state, product: payload};
@@ -34,7 +34,7 @@ export const productsReducer = (state = initialState, action) => {
 
 //Saga
 function* getProductsSaga() {
-    while (true){
+    while (true) {
         try {
             yield take(GET_PRODUCTS);
             const req = yield fetch('https://demo3830727.mockable.io/products');
@@ -50,7 +50,7 @@ function* getProductsSaga() {
 }
 
 function* shippingInfoSaga() {
-    while (true){
+    while (true) {
         try {
             const { payload } = yield take(SHIPPING_INFO);
             const response = yield fetch('https://demo3830727.mockable.io/info', {
@@ -72,6 +72,5 @@ export function* rootSaga() {
     yield all([
         getProductsSaga(),
         shippingInfoSaga()
-    ])
+    ]);
 }
-

@@ -1,8 +1,7 @@
-import React from "react";
-import { productsReducer } from "../../redux/store";
-import { initialState } from "../../redux/store";
-import { GET_PRODUCTS } from "../../redux/ducks";
-import { shippingInfo } from "../../redux/ducks";
+import { productsReducer } from '../../redux/ducks/products';
+import { initialState } from '../../redux/ducks/products';
+import { GET_PRODUCTS } from '../../redux/ducks/products';
+import { shippingInfo } from '../../redux/ducks/products';
 
 describe('ducks test', () => {
     let state = {
