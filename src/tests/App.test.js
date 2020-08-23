@@ -5,8 +5,8 @@ import App from '../App';
 import { store } from '../redux/store';
 import renderer from 'react-test-renderer';
 
-describe("App", () => {
-    it("should render App component", () => {
+describe('App', () => {
+    it('should render App component', () => {
         const component = renderer.create(
             <Provider store={store}>
                 <Router>

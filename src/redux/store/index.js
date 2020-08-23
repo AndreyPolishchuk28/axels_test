@@ -7,7 +7,7 @@ import { productsReducer } from '../ducks/products';
 const sagaMiddleware = createSagaMiddleware();
 
 const saveToLocalStorage = state => {
-    try{
+    try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem('state', serializedState);
     } catch (e) {

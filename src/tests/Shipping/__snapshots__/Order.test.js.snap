@@ -11,7 +11,7 @@ exports[`Order should render Order component 1`] = `
       className="col"
     >
       <h3
-        className="sc-AxirZ iNpdgK"
+        className="sc-AxirZ bYFdFZ"
       >
         Order Summary
       </h3>
@@ -33,17 +33,17 @@ exports[`Order should render Order component 1`] = `
       className="d-flex flex-column justify-content-between text-left p-0 col-xl-8 col-md-8 col-sm-8 col-8"
     >
       <span
-        className="sc-AxmLO gfOsYl"
+        className="sc-AxmLO dlfCci"
       >
         Subtotal
       </span>
       <span
-        className="sc-AxmLO gfOsYl"
+        className="sc-AxmLO dlfCci"
       >
         Shipping
       </span>
       <span
-        className="sc-AxmLO gfOsYl"
+        className="sc-AxmLO dlfCci"
       >
         Taxes
       </span>
@@ -52,7 +52,7 @@ exports[`Order should render Order component 1`] = `
       className="text-right p-0 d-flex flex-column justify-content-between col-xl-4 col-md-4 col-sm-4 col-4"
     >
       <span
-        className="sc-AxmLO gfOsYl"
+        className="sc-AxmLO dlfCci"
       >
         Free
       </span>

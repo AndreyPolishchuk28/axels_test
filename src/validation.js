@@ -39,8 +39,10 @@ export const paymentValidation = (values) => {
     if (!values.cardHolderName) {
         errors.cardHolderName = 'Name is required'
     }
-    if (values.cardNumber.length <= 15) {
+    if (!values.cardNumber) {
         errors.cardNumber = 'Wrong card number';
+    } else if (isNaN(values.cardNumber)) {
+        errors.cardNumber = 'Should be number'
     }
     if (!/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(values.expireDate)) {
         errors.expireDate = 'Incorrect date'

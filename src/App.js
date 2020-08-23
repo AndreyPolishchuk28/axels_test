@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Shipping, Billing, Payment, ThanksPage, Cart } from './components';
+import {Shipping, Billing, Payment, ThanksPage, Cart } from './components';
 import { UserContext } from './components/Shipping/UserContext';
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
               </UserContext.Provider>
           </div>
       </Router>
-  )
+  );
 };
 
 export default App;

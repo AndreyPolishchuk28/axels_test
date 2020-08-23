@@ -36,7 +36,7 @@ export const Billing = connect (mapStateToProps, { shippingInfo })(props => {
         setValues(returnLastEmail(props.products.userAddress));
     };
 
-    return(
+    return (
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
@@ -66,7 +66,7 @@ export const Billing = connect (mapStateToProps, { shippingInfo })(props => {
                             {errors && <Form.Text className="errors">{errors.fullName}</Form.Text>}
                             <Row className='daytime'>
                                 <Col>
-                                    <Form.Control required onChange={handleChange} name='email' value={props.email} type="text" placeholder="Email" />
+                                    <Form.Control onChange={handleChange} name='email' value={values.email} type="text" placeholder="Email" />
                                     {errors && <Form.Text className="errors">{errors.email}</Form.Text>}
                                 </Col>
                             </Row>
@@ -104,5 +104,5 @@ export const Billing = connect (mapStateToProps, { shippingInfo })(props => {
                 </Col>
             </Row>
         </Container>
-    )
+    );
 });

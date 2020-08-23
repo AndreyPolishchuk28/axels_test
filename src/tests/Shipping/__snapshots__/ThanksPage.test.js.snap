@@ -2,7 +2,7 @@
 
 exports[`ThanksPage should render ThanksPage component 1`] = `
 <div
-  className="sc-fzplWN hBpaEh container-fluid"
+  className="sc-AxjAm emnRQd container-fluid"
 >
   <div
     className="d-flex justify-content-center bg row"
@@ -17,7 +17,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
           className="text-left mt-5 ml-3 col"
         >
           <p
-            className="sc-fzqBZW ChhMw"
+            className="sc-fzqBZW eOYARb"
           >
             Thank you for your order!
           </p>
@@ -68,7 +68,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
           className="text-left ml-3 mt-2 col"
         >
           <p
-            className="sc-fzpjYC htpWiF"
+            className="sc-fzpjYC kJNrby"
           >
             Print Recipe
           </p>
@@ -79,7 +79,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
       className="grey wrapper-order-width col-md-5 col-sm-8 col-10"
     >
       <div
-        className="sc-AxjAm dBGbwJ"
+        className="sc-AxhCb gCHefG"
       >
         <div
           className="row"
@@ -88,7 +88,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="col"
           >
             <h3
-              className="sc-AxirZ iNpdgK"
+              className="sc-AxhUy ddBKQc"
             >
               Order Summary
             </h3>
@@ -97,7 +97,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="text-right col"
           >
             <span
-              className="sc-AxiKw kMCivh"
+              className="sc-AxgMl OIChS"
             >
               edit order
             </span>
@@ -110,17 +110,17 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="d-flex flex-column justify-content-between text-left p-0 col-xl-8 col-md-8 col-sm-8 col-8"
           >
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Subtotal
             </span>
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Shipping
             </span>
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Taxes
             </span>
@@ -129,7 +129,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="text-right p-0 d-flex flex-column justify-content-between col-xl-4 col-md-4 col-sm-4 col-4"
           >
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Free
             </span>
@@ -142,7 +142,7 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="col"
           >
             <span
-              className="sc-fzozJi ctA-DOD"
+              className="sc-fzplWN gbCGPk"
             >
               Total
             </span>
@@ -158,11 +158,11 @@ exports[`ThanksPage should render ThanksPage component 1`] = `
             className="col"
           >
             <p
-              className="sc-fzoLsD fESKKq"
+              className="sc-fznyAO gGyRlb"
             >
               All purchases are subject to our 
               <span
-                className="sc-fzpans gTQLxR"
+                className="sc-fznKkj cYYIqp"
               >
                 Terms and Conditions
               </span>

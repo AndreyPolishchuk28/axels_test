@@ -3,7 +3,32 @@
 exports[`App should render App component 1`] = `
 <div>
   <div
-    className="sc-fzplWN hBpaEh container-fluid"
+    className="sc-fznxsB eVpNEW"
+  >
+    <svg
+      className="bi bi-cart"
+      fill="currentColor"
+      height="1.5em"
+      viewBox="0 0 16 16"
+      width="1.5em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+      />
+    </svg>
+    <div
+      className="sc-fznJRM ekaZrC"
+    >
+      <span
+        className="sc-fznWqX csnJIO"
+      >
+        0
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-AxjAm emnRQd container-fluid"
   >
     <div
       className="d-flex justify-content-center bg row"
@@ -23,13 +48,13 @@ exports[`App should render App component 1`] = `
               Shipping
             </span>
             <div
-              className="sc-fznyAO fVayuL"
+              className="sc-AxirZ gwOTvu"
             />
             <span>
               Billing
             </span>
             <div
-              className="sc-fznyAO fVayuL"
+              className="sc-AxirZ gwOTvu"
             />
             <span>
               Payment
@@ -43,7 +68,7 @@ exports[`App should render App component 1`] = `
             className="text-left col"
           >
             <h2
-              className="sc-fznKkj eeVuea"
+              className="sc-AxiKw iYcDPJ"
             >
               Shipping Info
             </h2>
@@ -207,7 +232,7 @@ exports[`App should render App component 1`] = `
         className="grey wrapper-order-width col-md-5 col-sm-8 col-10"
       >
         <div
-          className="sc-AxjAm dBGbwJ"
+          className="sc-AxhCb gCHefG"
         >
           <div
             className="row"
@@ -216,7 +241,7 @@ exports[`App should render App component 1`] = `
               className="col"
             >
               <h3
-                className="sc-AxirZ iNpdgK"
+                className="sc-AxhUy ddBKQc"
               >
                 Order Summary
               </h3>
@@ -225,7 +250,7 @@ exports[`App should render App component 1`] = `
               className="text-right col"
             >
               <span
-                className="sc-AxiKw kMCivh"
+                className="sc-AxgMl OIChS"
               >
                 edit order
               </span>
@@ -238,17 +263,17 @@ exports[`App should render App component 1`] = `
               className="d-flex flex-column justify-content-between text-left p-0 col-xl-8 col-md-8 col-sm-8 col-8"
             >
               <span
-                className="sc-AxmLO gfOsYl"
+                className="sc-fzpans erUppB"
               >
                 Subtotal
               </span>
               <span
-                className="sc-AxmLO gfOsYl"
+                className="sc-fzpans erUppB"
               >
                 Shipping
               </span>
               <span
-                className="sc-AxmLO gfOsYl"
+                className="sc-fzpans erUppB"
               >
                 Taxes
               </span>
@@ -257,7 +282,7 @@ exports[`App should render App component 1`] = `
               className="text-right p-0 d-flex flex-column justify-content-between col-xl-4 col-md-4 col-sm-4 col-4"
             >
               <span
-                className="sc-AxmLO gfOsYl"
+                className="sc-fzpans erUppB"
               >
                 Free
               </span>
@@ -270,7 +295,7 @@ exports[`App should render App component 1`] = `
               className="col"
             >
               <span
-                className="sc-fzozJi ctA-DOD"
+                className="sc-fzplWN gbCGPk"
               >
                 Total
               </span>
@@ -286,11 +311,11 @@ exports[`App should render App component 1`] = `
               className="col"
             >
               <p
-                className="sc-fzoLsD fESKKq"
+                className="sc-fznyAO gGyRlb"
               >
                 All purchases are subject to our 
                 <span
-                  className="sc-fzpans gTQLxR"
+                  className="sc-fznKkj cYYIqp"
                 >
                   Terms and Conditions
                 </span>

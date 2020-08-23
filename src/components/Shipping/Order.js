@@ -20,7 +20,7 @@ export const Order = connect (mapStateToProps, { getProducts })(props => {
         return cost
     };
 
-    return(
+    return (
         <Container>
             <Row>
                 <Col>
@@ -72,5 +72,5 @@ export const Order = connect (mapStateToProps, { getProducts })(props => {
                 </Col>
             </Row>
         </Container>
-    )
+    );
 });

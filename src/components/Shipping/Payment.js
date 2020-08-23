@@ -43,7 +43,7 @@ export const Payment = connect (mapStateToProps, { shippingInfo })(props => {
         }
     };
 
-    return(
+    return (
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
@@ -63,27 +63,27 @@ export const Payment = connect (mapStateToProps, { shippingInfo })(props => {
                     </Row>
                     <Row>
                         <Col className='d-flex '>
-                            <i className="fas fa-lock lock"></i>
+                            <i className="fas fa-lock lock"/>
                             <SecureInfo className='ml-2'>This is a secure 128-bit SSL encrypted payment</SecureInfo>
                         </Col>
                     </Row>
                     <Form>
                         <Form.Group>
                             <Form.Label className='recipient'>Cardholder Name</Form.Label>
-                            <Form.Control onChange={handleChange} name='cardHolderName' value={props.cardHolderName} type="text" placeholder="Name as it appears on your card" />
+                            <Form.Control onChange={handleChange} name='cardHolderName' value={values.cardHolderName} type="text" placeholder="Name as it appears on your card" />
                             {errors && <Form.Text className="errors">{errors.cardHolderName}</Form.Text>}
                             <Form.Label className='recipient mt-4'>Card Number</Form.Label>
-                            <Form.Control onChange={handleChange} name='cardNumber' value={props.cardNumber} className='indent' type="text" placeholder="XXXX XXXX XXXX XXXX"/>
+                            <Form.Control onChange={handleChange} name='cardNumber' value={values.cardNumber} className='indent' type="text" placeholder="XXXX XXXX XXXX XXXX"/>
                             {errors && <Form.Text className="errors">{errors.cardNumber}</Form.Text>}
                             <Row>
                                 <Col xl={3} lg={3} md={4} sm={4} xs={5}>
                                     <Form.Label className='recipient mt-3'>Expire Date</Form.Label>
-                                    <Form.Control name='expireDate' onChange={handleChange} value={props.expireDate} className='indent' type="text" placeholder="MM/YY"/>
+                                    <Form.Control name='expireDate' onChange={handleChange} value={values.expireDate} className='indent' type="text" placeholder="MM/YY"/>
                                     {errors && <Form.Text className="errors">{errors.expireDate}</Form.Text>}
                                 </Col>
                                 <Col xl={4} lg={4} md={4} sm={4} xs={6}>
                                     <Form.Label className='recipient mt-3'>Security Code</Form.Label>
-                                    <Form.Control onChange={handleChange} name='securityCode' value={props.securityCode} type="text" placeholder=""/>
+                                    <Form.Control onChange={handleChange} name='securityCode' value={values.securityCode} type="text" placeholder=""/>
                                     {errors && <Form.Text className="errors">{errors.securityCode}</Form.Text>}
                                 </Col>
                             </Row>
@@ -100,5 +100,5 @@ export const Payment = connect (mapStateToProps, { shippingInfo })(props => {
                 </Col>
             </Row>
         </Container>
-    )
+    );
 });

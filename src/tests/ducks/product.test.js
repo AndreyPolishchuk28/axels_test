@@ -1,7 +1,11 @@
-import { productsReducer } from '../../redux/ducks/products';
-import { initialState } from '../../redux/ducks/products';
-import { GET_PRODUCTS } from '../../redux/ducks/products';
-import { shippingInfo } from '../../redux/ducks/products';
+import {
+    getProducts,
+    shippingInfo,
+    productsReducer,
+    SHIPPING_INFO,
+    GET_PRODUCTS,
+    initialState
+} from '../../redux/ducks/products';
 
 describe('ducks test', () => {
     let state = {
@@ -34,5 +38,25 @@ describe('ducks test', () => {
 
         let newState = productsReducer(state, action);
         expect(newState.userAddress.length).toBe(1)
+    })
+});
+
+describe('ducks action test', () => {
+    it('should create fetch GET_PRODUCTS', () => {
+        const payload = {response: 'res'};
+        const expectedAction = {
+            type: GET_PRODUCTS,
+            payload
+        };
+        expect(getProducts(payload)).toEqual(expectedAction)
+    });
+
+    it('should create fetch SHIPPING_INFO', () => {
+        const payload = {response: 'status'};
+        const expectedAction = {
+            type: SHIPPING_INFO,
+            payload
+        };
+        expect(shippingInfo(payload)).toEqual(expectedAction)
     })
 });

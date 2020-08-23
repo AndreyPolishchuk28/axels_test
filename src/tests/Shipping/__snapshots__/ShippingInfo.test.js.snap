@@ -2,7 +2,7 @@
 
 exports[`Shipping should render Shipping component 1`] = `
 <div
-  className="sc-fzplWN hBpaEh container-fluid"
+  className="sc-AxjAm emnRQd container-fluid"
 >
   <div
     className="d-flex justify-content-center bg row"
@@ -22,13 +22,13 @@ exports[`Shipping should render Shipping component 1`] = `
             Shipping
           </span>
           <div
-            className="sc-fznyAO fVayuL"
+            className="sc-AxirZ gwOTvu"
           />
           <span>
             Billing
           </span>
           <div
-            className="sc-fznyAO fVayuL"
+            className="sc-AxirZ gwOTvu"
           />
           <span>
             Payment
@@ -42,7 +42,7 @@ exports[`Shipping should render Shipping component 1`] = `
           className="text-left col"
         >
           <h2
-            className="sc-fznKkj eeVuea"
+            className="sc-AxiKw iYcDPJ"
           >
             Shipping Info
           </h2>
@@ -206,7 +206,7 @@ exports[`Shipping should render Shipping component 1`] = `
       className="grey wrapper-order-width col-md-5 col-sm-8 col-10"
     >
       <div
-        className="sc-AxjAm dBGbwJ"
+        className="sc-AxhCb gCHefG"
       >
         <div
           className="row"
@@ -215,7 +215,7 @@ exports[`Shipping should render Shipping component 1`] = `
             className="col"
           >
             <h3
-              className="sc-AxirZ iNpdgK"
+              className="sc-AxhUy ddBKQc"
             >
               Order Summary
             </h3>
@@ -224,7 +224,7 @@ exports[`Shipping should render Shipping component 1`] = `
             className="text-right col"
           >
             <span
-              className="sc-AxiKw kMCivh"
+              className="sc-AxgMl OIChS"
             >
               edit order
             </span>
@@ -237,17 +237,17 @@ exports[`Shipping should render Shipping component 1`] = `
             className="d-flex flex-column justify-content-between text-left p-0 col-xl-8 col-md-8 col-sm-8 col-8"
           >
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Subtotal
             </span>
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Shipping
             </span>
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Taxes
             </span>
@@ -256,7 +256,7 @@ exports[`Shipping should render Shipping component 1`] = `
             className="text-right p-0 d-flex flex-column justify-content-between col-xl-4 col-md-4 col-sm-4 col-4"
           >
             <span
-              className="sc-AxmLO gfOsYl"
+              className="sc-fzpans erUppB"
             >
               Free
             </span>
@@ -269,7 +269,7 @@ exports[`Shipping should render Shipping component 1`] = `
             className="col"
           >
             <span
-              className="sc-fzozJi ctA-DOD"
+              className="sc-fzplWN gbCGPk"
             >
               Total
             </span>
@@ -285,11 +285,11 @@ exports[`Shipping should render Shipping component 1`] = `
             className="col"
           >
             <p
-              className="sc-fzoLsD fESKKq"
+              className="sc-fznyAO gGyRlb"
             >
               All purchases are subject to our 
               <span
-                className="sc-fzpans gTQLxR"
+                className="sc-fznKkj cYYIqp"
               >
                 Terms and Conditions
               </span>

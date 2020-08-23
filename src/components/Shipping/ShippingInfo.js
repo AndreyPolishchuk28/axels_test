@@ -29,7 +29,7 @@ export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
         })
     };
 
-    return(
+    return (
         <Container className='container-fluid'>
             <Row className='d-flex justify-content-center bg'>
                 <Col className='bg-white wrapper-shipping-width' md={6} sm={8} xs={10}>
@@ -97,5 +97,5 @@ export const Shipping = connect (mapStateToProps, { shippingInfo })(props => {
                 </Col>
             </Row>
         </Container>
-    )
+    );
 });
