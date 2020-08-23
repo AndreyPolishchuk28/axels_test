@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import { Shipping, Billing, Payment, ThanksPage, Cart } from './components';
 import { UserContext } from './components/Shipping/UserContext';
+import { Shipping, Billing, Payment, ThanksPage } from './components';
+
 
 const App = () => {
     const [quantity, setQuantity] = useState(0);
